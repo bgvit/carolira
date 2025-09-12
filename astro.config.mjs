@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  site: 'https://accessible-astro-starter.incluud.dev',
+  site: 'https://www.carolira.com',
   integrations: [mdx(), icon(), compress()],
   vite: {
     css: {
@@ -29,8 +29,7 @@ export default defineConfig({
         '@content': fileURLToPath(new URL('./src/content', import.meta.url)),
         '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
         '@public': fileURLToPath(new URL('./public', import.meta.url)),
-        '@post-images': fileURLToPath(new URL('./public/posts', import.meta.url)),
-        '@project-images': fileURLToPath(new URL('./public/projects', import.meta.url)),
+        '@livros-images': fileURLToPath(new URL('./public/livros', import.meta.url)),
       },
     },
   },

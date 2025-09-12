@@ -1,11 +1,11 @@
 {
-  "name": "accessible-astro-starter",
-  "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
+  "name": "carolira",
+  "description": "A blog website built with Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
   "version": "4.1.1",
-  "author": "Incluud",
+  "author": "bgvit",
   "license": "MIT",
   "type": "module",
-  "homepage": "https://accessible-astro-starter.incluud.dev/",
+  "homepage": "https://www.carolira.com",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,25 +13,16 @@
     "preview": "astro preview"
   },
   "keywords": [
-    "astro",
-    "astro-component",
-    "astro-components",
-    "accessible",
-    "accessibility",
-    "a11y",
-    "wcag",
-    "responsive",
-    "ui-library",
-    "ui-components",
     "blog",
-    "portfolio"
+    "writer",
+    "books"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
+    "url": "git+https://github.com/bgvit/carolira.git"
   },
   "bugs": {
-    "url": "https://github.com/incluud/accessible-astro-starter/issues"
+    "url": "https://github.com/bgvit/carolira.git/issues"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.3.0",

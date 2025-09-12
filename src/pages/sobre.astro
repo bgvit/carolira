@@ -1,0 +1,58 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { Media } from 'accessible-astro-components'
+import PageHeader from '../components/PageHeader.astro'
+const carolUnderRedLight = "/about.webp"
+const altCarolUnderRedLight = "A fotografia mostra uma mulher jovem sentada a uma mesa de madeira em um ambiente com iluminação quente e aconchegante, que parece ser um restaurante ou bar." +
+  "Ela está em primeiro plano, olhando diretamente para a câmera com uma expressão serena e um leve sorriso." +
+  "A mulher tem pele clara, cabelos escuros, longos e ondulados, com uma franja sobre a testa. Algumas mechas de seu cabelo parecem ter uma tonalidade azulada ou esverdeada. Seus olhos são escuros e expressivos." +
+  "Ela apoia o rosto na mão direita, com o cotovelo sobre a mesa. Nesta mão, há uma pequena tatuagem de um contorno que lembra a cabeça de um alienígena. Ela veste uma blusa escura de alças com uma estampa sutil." +
+  "À sua frente, sobre a mesa, há um pequeno abajur moderno e sem fio, de cor metálica, que ilumina seu rosto e o ambiente ao redor com uma luz amarelada. Ao lado do abajur, há um prato, talheres e um celular." +
+  "O fundo está ligeiramente desfocado. À direita, uma parede de tijolos aparentes compõe o cenário. À esquerda, outras pessoas estão sentadas em mesas mais distantes, sugerindo um local movimentado, mas a atmosfera geral da foto é íntima e focada na mulher."
+---
+<DefaultLayout
+  title="Sobre a autora"
+  description="Quem é Carol Lira"
+>
+  <PageHeader
+    title="Sobre a autora"
+    subtitle="<p>Quem é Carol Lira?"
+    bgType="gradient"
+  />
+  <section class="m-6">
+    <div class="container">
+      <div class="grid xl:grid-cols-2 2xl:grid-cols-2 items-center">
+        <Media loading="eager" alt={altCarolUnderRedLight} src={carolUnderRedLight}></Media>
+        <div class="space-content mx-12 mt-12">
+          <p class="text-2xl text-justify">
+            Carol Lira é feita de excesso: de sensibilidade, de empatia, de emoção.
+            Sempre sentiu demais — não só com o corpo, mas com tudo o que a alma alcança.
+          </p>
+          <p class="text-2xl text-justify">
+            Desde muito pequena, criava mundos com o que estivesse ao alcance das mãos: lápis viravam personagens, sentimentos se transformavam em canções, o silêncio, em histórias.
+          </p>
+
+          <p class="text-2xl text-justify">
+            A escrita a acompanha desde os 8 anos, quando começou a compor suas primeiras músicas.
+            Já naquela época, suas palavras assustavam adultos, não pela rebeldia, mas pela profundidade com que encaravam a dor.
+          </p>
+
+          <p class="text-2xl text-justify">
+            Ao longo da vida, sua sensibilidade foi muitas vezes confundida com fraqueza. Sua criatividade, com fuga.
+            Mas eram, na verdade, os recursos que tinha para existir em um mundo que não sabia nomear suas diferenças.
+
+            Depois de uma década de investigações e dores invisíveis, Carol recebeu o diagnóstico de autismo nível 1 de suporte aos 26 anos.
+          </p>
+          <p class="text-2xl text-justify">
+            Carol é formada em Comunicação Social, cofundadora do Demian Book Club e voluntária no abrigo de animais CAARP.
+          </p>
+
+          <p class="text-2xl text-justify">
+            Escrever, para ela, é viver com paixão.
+            E sua paixão é o que deseja que viaje, encontre almas pelo caminho, e as aconchegue,  mesmo que por instantes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

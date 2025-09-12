@@ -7,22 +7,22 @@ import Footer from '../components/Footer.astro'
 import { ClientRouter } from 'astro:transitions'
 
 const {
-  title = 'Accessible Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  title = 'Carol Lira: escritora da resistência, esperança e acessibilidade.',
+  description = 'Esse é o site da escritora Carol Lira. Uma artista que fala em nome da aceitação, acessibilidade e resistência. Fala de suas vivência que são permeadas por potências e limites.',
   url = Astro.site,
   image = 'social-preview-image.png',
-  author = 'Incluud',
+  author = 'Carol Lira',
 } = Astro.props
 ---
 
-<html lang="en" dir="ltr">
+<html lang="pt-BR" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
 
     <SiteMeta title={title} description={description.substring(0, 100)} url={url} image={image} author={author} />
 

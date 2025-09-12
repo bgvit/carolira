@@ -1,0 +1,68 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import SocialShares from '@components/SocialShares.astro'
+import { getCollection, render } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+export async function getStaticPaths() {
+  const livros = await getCollection('livros')
+
+  const livroImages = [
+    { src: '/livros/perpetual-prison-book-1.webp' },
+  ]
+
+  return livros.map((livro, index) => {
+    const livroWithImage = {
+      ...livro,
+      featuredImage: livroImages[index % livroImages.length].src,
+    }
+
+    return {
+      params: { livro: livro.id },
+      props: { livro: livroWithImage },
+    }
+  })
+}
+
+interface Props {
+  livro: CollectionEntry<'livros'> & { featuredImage: string }
+}
+
+const { livro } = Astro.props
+const { Content } = await render(livro)
+
+const author = {
+  name: livro.data.author,
+  image: '@public/social-preview-image.png',
+  bio: 'Escritora',
+}
+---
+
+<DefaultLayout title={livro.data.title} description={livro.data.description} url={livro.data.title}>
+  <PageHeader
+    title={livro.data.title}
+    subtitle={livro.data.description}
+    <!--author={author}-->
+    bgType="bordered"
+    featuredImage={livro.featuredImage}
+  />
+  <section class="my-12">
+    <div class="narrow space-content container">
+      <Content />
+    </div>
+  </section>
+  <section class="my-12">
+    <div class="narrow space-content container">
+      <h2>Compartilhe este livro</h2>
+      <p>Gostou do livro? Compartilhe em suas redes sociais!</p>
+      <SocialShares />
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  .narrow {
+    margin-inline: auto;
+    max-width: 65ch;
+  }
+</style>

@@ -1,0 +1,94 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Card, Pagination } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+// Import images directly for optimization
+import livroImage1 from '@assets/images/livros/perpetual-prison-book-1.webp'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const livros = await getCollection('livros')
+
+  const livroImages = [livroImage1]
+
+  const livrosWithImages = livros.map((livro, index) => {
+    return {
+      ...livro,
+      featuredImage: livroImages[index % livroImages.length],
+    }
+  })
+
+  return paginate(livrosWithImages, { pageSize: 6 })
+}) satisfies GetStaticPaths
+
+interface Props {
+  page: Page<CollectionEntry<'livros'> & { featuredImage: any }>
+}
+
+const { page } = Astro.props
+
+// Prepare pagination props
+const currentPage = page.currentPage
+const totalPages = Math.ceil(page.total / page.size)
+---
+
+<DefaultLayout
+  title="Livros"
+  description="Obras literárias de Carol Lira"
+>
+  <PageHeader
+    title="Livros"
+    subtitle="Obras literárias de Carol Lira"
+    bgType="gradient"
+  />
+  <section class="my-12">
+    <div class="container">
+      <p class="text-sm"><em>Exibindo os livros {currentPage} a {page.end + 1} de {totalPages} no total</em></p>
+      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          page.data.map((livro) => (
+            <li>
+              <Card
+                imageComponent={livro.featuredImage}
+                url={'/livros/' + livro.id}
+                title={livro.data.title}
+                footer={'Autora: ' + livro.data.author}
+              >
+                {livro.data.description}
+              </Card>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-12 grid place-content-center">
+        <Pagination
+          firstPage={page.url.prev ? '/livros' : null}
+          previousPage={page.url.prev ? page.url.prev : null}
+          nextPage={page.url.next ? page.url.next : null}
+          lastPage={page.url.next ? `/livros/${Math.ceil(page.total / page.size)}` : null}
+          currentPage={`${page.currentPage}`}
+          totalPages={`${Math.ceil(page.total / page.size)}`}
+          ariaLabel="Livro paginação"
+        />
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  @use '../../assets/scss/base/mixins' as *;
+
+  .card {
+    h3 {
+      margin-block-end: var(--space-xs);
+      line-height: 0.75;
+    }
+
+    a {
+      @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
+    }
+  }
+</style>

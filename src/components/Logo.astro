@@ -1,12 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../assets/img/logo.svg'
-
 /**
  * Logo Component
  *
  * @description Logo description
  */
+
+import { Icon } from 'astro-icon/components'
 interface Props {
   /**
    * Whether to load the image eagerly or lazily
@@ -18,10 +17,16 @@ interface Props {
 const { loading = 'eager' }: Props = Astro.props
 ---
 
-<a href="/" class="flex items-center gap-2 !no-underline">
-  <Image src={logo} alt="Accessible Astro Logo" width="47" height="37" loading={loading} />
-  <span class="font-bold">Accessible Astro</span>
-</a>
+<div class="flex items-center gap-2 !no-underline">
+  <a href="/" >
+    <!--<Image src={logo} alt="Carol Lira Logo" width="47" height="37" loading={loading} />-->
+    <span class="font-bold text-xl">Carol Lira</span>
+
+  </a>
+  <a href="https://www.instagram.com/carolira"><Icon name="social-networks/instagram" size="1.5rem" /></a>
+  <a href="https://www.tiktok.com/@carolira.autora"><Icon name="social-networks/tiktok" size="1.5rem" /></a>
+  <a href="https://a.co/d/f0AqblQ"><Icon name="social-networks/amazon" size="1.5rem" /></a>
+</div>
 
 <style lang="scss">
   a {

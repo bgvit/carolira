@@ -1,0 +1,19 @@
+---
+import PageHeader from '../components/PageHeader.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Card } from 'accessible-astro-components'
+import perpetualPrisonAfternoon from '@public/perpetual_prison_afternoon.webp'
+---
+<DefaultLayout
+  title="Sobre a autora"
+  description="Quem é Carol Lira"
+>
+  <PageHeader
+    title="Eventos"
+    subtitle="Agenda de eventos da Carol"
+    bgType="gradient"
+  />
+  <section class="container">
+    <Card title="Sessão de autógrafos do livro Prisão Perpétua" imageAlt="Sessão de autógrafos do livro Prisão Perpétua: Os desbotados tons do espectro" img={perpetualPrisonAfternoon.src}></Card>
+  </section>
+</DefaultLayout>
