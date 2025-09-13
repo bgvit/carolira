@@ -10,8 +10,8 @@ import BlockQuote from '../components/BlockQuote.astro'
   <Hero />
   <section class="mt-64 mb-32">
     <div class="container space-content">
-    <h2 class="mb-16 text-6xl">Comentários</h2>
       <div class="grid grid-cols-1 gap-y-16">
+        <h2 class="text-5xl sm:text-6xl"><slot>Comentários</slot></h2>
         <div class="space-content">
           <BlockQuote author="Leitor Kindle" >
             Ao ler o livro lembrei da minha vida, o uso de mil máscaras, uma tentativa de encaixar em um mundo que não me fazia vibrar. A dissolução do ego e o encontro consigo mesmo devem ser o que a maioria dos buscadores pretendem encontrar.
